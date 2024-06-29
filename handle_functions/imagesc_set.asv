@@ -1,0 +1,34 @@
+function imagesc_set(B, varargin)
+
+
+sB = size(B);
+Nz = sB(1); 
+Nx = sB(2);
+
+if nargin == 1 
+    ns = 0.05; z_vec = 1:Nz; x_vec = 1:Nx;
+elseif nargin == 2
+    z_vec = varargin{1}; 
+    x_vec = 1:Nx;
+    ns = 0.05;
+elseif nargin == 3
+    z_vec = varargin{1};
+    x_vec = varargin{2};
+    ns = 0.05;
+elseif nargin == 4
+    z_vec = varargin{1};
+    x_vec = varargin{2};
+    ns = varargin{3};
+else 
+    error('Too many input arguments!');
+end
+
+if not( (length(z_vec) == Nz) & (length(x_vec) == Nx)& (length(ns) == 1) ) 
+    error('Dimensions of the arrays do not match!');
+end
+
+[i_low,i_sup] = fig_set(B, varargin)
+
+
+
+end
